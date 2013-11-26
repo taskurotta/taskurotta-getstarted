@@ -1,0 +1,60 @@
+runtime:
+  - Runtime:
+      class: ru.taskurotta.example.bootstrap.SimpleRuntimeConfig
+      instance:
+        context: RuntimeBeans.xml
+
+spreader:
+  - Spreader:
+      class: ru.taskurotta.spring.configs.SpreaderConfigPathXmlApplicationContext
+      instance:
+        context: SpreaderBeans.xml
+        properties:
+          userId: 10
+          message: "Hello!"
+          count: 1
+
+
+profiler:
+  - Profiler:
+      class: ru.taskurotta.bootstrap.config.DefaultProfilerConfig
+      instance:
+        class: ru.taskurotta.bootstrap.profiler.MetricsProfiler
+        properties:
+          meterCycle: true
+          trackExecute: true
+          trackCycle: true
+          trackPull: true
+          trackRelease: true
+          trackError: false
+          logOutput: false
+          consoleOutput: false
+
+actor:
+  - NotificationDecider:
+      actorInterface: ru.taskurotta.example.decider.NotificationDecider
+      runtimeConfig: Runtime
+      spreaderConfig: Spreader
+      profilerConfig: Profiler
+      count: 1
+
+  - ProfileService:
+      actorInterface: ru.taskurotta.example.worker.profile.ProfileService
+      runtimeConfig: Runtime
+      spreaderConfig: Spreader
+      profilerConfig: Profiler
+      count: 1
+
+  - MailService:
+      actorInterface: ru.taskurotta.example.worker.profile.MailService
+      runtimeConfig: Runtime
+      spreaderConfig: Spreader
+      profilerConfig: Profiler
+      count: 1
+
+  - SMSService:
+      actorInterface: ru.taskurotta.example.worker.profile.SMSService
+      runtimeConfig: Runtime
+      spreaderConfig: Spreader
+      profilerConfig: Profiler
+      count: 1

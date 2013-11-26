@@ -28,7 +28,7 @@ public class NotificationDeciderImplTest {
     MailServiceClient mailService;
     SMSServiceClient smsService;
     UserProfileServiceClient userProfileService;
-    NotificationDeciderImpl decider;
+    NotificationDeciderImpl asynchronousDecider;
 
     @Before
     public void init() {
@@ -37,7 +37,7 @@ public class NotificationDeciderImplTest {
         mailService = ProxyFactory.getWorkerClient(MailServiceClient.class);
         smsService = ProxyFactory.getWorkerClient(SMSServiceClient.class);
         userProfileService = ProxyFactory.getWorkerClient(UserProfileServiceClient.class);
-        decider = ProxyFactory.getAsynchronousClient(NotificationDeciderImpl
+        asynchronousDecider = ProxyFactory.getAsynchronousClient(NotificationDeciderImpl
                 .class);
 
         // create and initialize decider instance
@@ -46,7 +46,7 @@ public class NotificationDeciderImplTest {
         notificationDeciderImpl.setMailService(mailService);
         notificationDeciderImpl.setSmsService(smsService);
         notificationDeciderImpl.setUserProfileService(userProfileService);
-        notificationDeciderImpl.setAsynchronousDecider(decider);
+        notificationDeciderImpl.setAsynchronousDecider(asynchronousDecider);
 
 
         // initialize runtime processor for decider implementation
@@ -65,14 +65,14 @@ public class NotificationDeciderImplTest {
         new AssertFlow(runtimeProcessor) {
 
             public void execute() {
-                decider.start(userId, message);
+                asynchronousDecider.start(userId, message);
             }
 
             public Promise expectedFlow() {
 
                 Promise<Profile> profilePromise = userProfileService.get(userId);
-                Promise<Boolean> sendResultPromise = decider.sendToTransport(profilePromise, message);
-                decider.blockOnFail(userId, sendResultPromise);
+                Promise<Boolean> sendResultPromise = asynchronousDecider.sendToTransport(profilePromise, message);
+                asynchronousDecider.blockOnFail(userId, sendResultPromise);
 
                 return null;
             }
@@ -93,7 +93,7 @@ public class NotificationDeciderImplTest {
                 profile.setDeliveryType(Profile.DeliveryType.SMS);
                 Promise<Profile> profilePromise = Promise.asPromise(profile);
 
-                decider.sendToTransport(profilePromise, message);
+                asynchronousDecider.sendToTransport(profilePromise, message);
             }
 
             public Promise expectedFlow() {

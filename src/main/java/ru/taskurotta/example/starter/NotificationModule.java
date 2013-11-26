@@ -26,7 +26,7 @@ public class NotificationModule {
 
     public static NotificationDeciderClient getClient(String endpoint) {
 
-        // TODO: should be refactored to simple API style (with out spring taste)
+        // TODO: should be refactored to simple API style (without spring taste)
         JerseyHttpTaskServerProxy taskServer = new JerseyHttpTaskServerProxy();
         taskServer.setEndpoint(endpoint);
         taskServer.setConnectTimeout(1000);

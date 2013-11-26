@@ -1,0 +1,58 @@
+runtime:
+  - Runtime:
+      class: ru.taskurotta.example.bootstrap.SimpleRuntimeConfig
+      instance:
+        context: "fff"
+
+spreader:
+  - Spreader:
+      class: ru.taskurotta.example.bootstrap.SimpleSpreaderConfig
+      instance:
+        endpoint: "http://localhost:8081"
+        threadPoolSize: 10
+        readTimeout: 0
+        connectTimeout: 3000
+
+profiler:
+  - Profiler:
+      class: ru.taskurotta.bootstrap.config.DefaultProfilerConfig
+      instance:
+        class: ru.taskurotta.bootstrap.profiler.MetricsProfiler
+        properties:
+          meterCycle: true
+          trackExecute: true
+          trackCycle: true
+          trackPull: true
+          trackRelease: true
+          trackError: false
+          logOutput: false
+          consoleOutput: false
+
+actor:
+  - NotificationDecider:
+      actorInterface: ru.taskurotta.example.decider.NotificationDecider
+      runtimeConfig: Runtime
+      spreaderConfig: Spreader
+      profilerConfig: Profiler
+      count: 1
+
+  - ProfileService:
+      actorInterface: ru.taskurotta.example.worker.profile.UserProfileService
+      runtimeConfig: Runtime
+      spreaderConfig: Spreader
+      profilerConfig: Profiler
+      count: 1
+
+  - MailService:
+      actorInterface: ru.taskurotta.example.worker.mail.MailService
+      runtimeConfig: Runtime
+      spreaderConfig: Spreader
+      profilerConfig: Profiler
+      count: 1
+
+  - SMSService:
+      actorInterface: ru.taskurotta.example.worker.sms.SMSService
+      runtimeConfig: Runtime
+      spreaderConfig: Spreader
+      profilerConfig: Profiler
+      count: 1
