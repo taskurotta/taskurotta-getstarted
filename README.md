@@ -24,15 +24,19 @@ Install driver to local maven repository. Note: You should specify correct path 
 
 ## Test servers
 
+Run two nodes on same physical server (for test reason). Note: you can run as many nodes as you need.
+Please correct port numbers if you will use same physical server.
+
 Run first node:
 
     java -Xmx256m -DassetsMode=dev -Dts.node.custom.name="node1" -Ddw.http.port=8081 -Ddw.http.adminPort=9081 -Ddw.logging.file.currentLogFilename="assemble/target/server1.log" -jar assemble/target/assemble-0.3.0-SNAPSHOT.jar server assemble/src/main/resources/hz.yml
     
-I other you can run second node:
+Run second node:
 
     java -Xmx256m -DassetsMode=dev -Dts.node.custom.name="node2" -Ddw.http.port=8082 -Ddw.http.adminPort=9082 -Ddw.logging.file.currentLogFilename="assemble/target/server2.log" -jar assemble/target/assemble-0.3.0-SNAPSHOT.jar server assemble/src/main/resources/hz.yml
     
-In both consoles should be message "Members [2] {" when both servers connected to each other.
+When both servers connected to each other, you can find message like this "Members [2] {" in  log files.
+
 
 Open console in browser:
     
@@ -41,12 +45,24 @@ or
 
     http://localhost:8082/index.html
 
-You can use any server console late.
+You can use ANY node console later. In general, consoles provide the same information.
 
 ## Assemble simple process project
 
     git clone https://github.com/taskurotta/taskurotta-getstarted.git
     cd taskurotta-getstarted/
+
+### Create and test process
+
+Package ru.taskurotta.example.worker contains three worker interfaces and its implementations.
+
+Package ru.taskurotta.example.decider contains decider interface NotificationDecider, its implementation and
+clients interfaces which are used by decider to communicate with workers.
+
+NotificationDeciderImlTest class contains example of decider initialisation and testing of two its methods.
+
+### Create and test starter of process
+
 
 
 
