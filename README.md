@@ -1,4 +1,4 @@
-## Assemble
+## Assemble server of Taskurotta
 
 ### Clone repository
 
@@ -20,7 +20,7 @@ Install driver to local maven repository. Note: You should specify correct path 
     
 ### Assemble Taskurotta
 
-mvn install -DskipTests
+    mvn install -DskipTests
 
 ## Test servers
 
@@ -43,8 +43,10 @@ or
 
 You can use any server console late.
 
-## Asseble simple process project
+## Assemble simple process project
 
     git clone https://github.com/taskurotta/taskurotta-getstarted.git
     cd taskurotta-getstarted/
-    
+
+
+

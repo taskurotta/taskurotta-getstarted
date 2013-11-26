@@ -1,6 +1,7 @@
-package worker;
+package ru.taskurotta.example.worker.profile;
 
 import ru.taskurotta.annotation.Worker;
+
 
 @Worker
 public interface UserProfileService {

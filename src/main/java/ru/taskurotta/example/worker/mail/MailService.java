@@ -1,6 +1,7 @@
-package worker;
+package ru.taskurotta.example.worker.mail;
 
 import ru.taskurotta.annotation.Worker;
+
 
 @Worker
 public interface MailService {
