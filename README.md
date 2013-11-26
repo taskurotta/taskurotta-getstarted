@@ -65,15 +65,15 @@ NotificationDeciderImlTest class contains example of decider initialisation and 
 
 ### Create and test starter of process
 
-mvn install
-java -cp target/process-1.0-SNAPSHOT.jar ru.taskurotta.example.starter.NotificationModule http://localhost:8081 91
+    mvn install
+    java -cp target/process-1.0-SNAPSHOT.jar ru.taskurotta.example.starter.NotificationModule http://localhost:8081 91
 
 Check console http://localhost:8081/index.html . Select "Queues" menu item. There should be 91 tasks in
 ru.taskurotta.example.decider.NotificationDecider#1.0 queue.
 
 ### Run actors
 
-java -Xmx256m -jar target/process-1.0-SNAPSHOT.jar -f src/main/resources/config.yml
+    java -Xmx256m -jar target/process-1.0-SNAPSHOT.jar -f src/main/resources/config.yml
 
 
 
