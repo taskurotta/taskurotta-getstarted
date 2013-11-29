@@ -9,15 +9,6 @@ Checkout last tested version
     
     git checkout 246146d
 
-#### Download and install oracle driver (ONLY needed to run with Oracle)
-
-It is needed for integration tests and will be removed soon.
-
-Download oracle driver 11.1.0.7.0 for jdk 1.5 (ojdbc5.jar) from http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html
-Install driver to local maven repository. Note: You should specify correct path to file
-
-    mvn install:install-file -DgroupId=com.oracle -DartifactId=oracle-jdbc15 -Dversion=11.1.0.7.0 -Dpackaging=jar -Dfile=/home/romario/Downloads/ojdbc5.jar -DgeneratePom=true
-    
 ### Assemble Taskurotta
 
     mvn install -DskipTests
