@@ -2,18 +2,16 @@ runtime:
   - Runtime:
       class: ru.taskurotta.example.bootstrap.SimpleRuntimeConfig
       instance:
-        context: RuntimeBeans.xml
+        context: "fff"
 
 spreader:
   - Spreader:
-      class: ru.taskurotta.spring.configs.SpreaderConfigPathXmlApplicationContext
+      class: ru.taskurotta.example.bootstrap.SimpleSpreaderConfig
       instance:
-        context: SpreaderBeans.xml
-        properties:
-          userId: 10
-          message: "Hello!"
-          count: 1
-
+        endpoint: "http://localhost:8082"
+        threadPoolSize: 10
+        readTimeout: 0
+        connectTimeout: 3000
 
 profiler:
   - Profiler:
@@ -31,29 +29,22 @@ profiler:
           consoleOutput: false
 
 actor:
-  - NotificationDecider:
-      actorInterface: ru.taskurotta.example.decider.NotificationDecider
-      runtimeConfig: Runtime
-      spreaderConfig: Spreader
-      profilerConfig: Profiler
-      count: 1
-
   - ProfileService:
-      actorInterface: ru.taskurotta.example.worker.profile.ProfileService
+      actorInterface: ru.taskurotta.example.worker.profile.UserProfileService
       runtimeConfig: Runtime
       spreaderConfig: Spreader
       profilerConfig: Profiler
       count: 1
 
   - MailService:
-      actorInterface: ru.taskurotta.example.worker.profile.MailService
+      actorInterface: ru.taskurotta.example.worker.mail.MailService
       runtimeConfig: Runtime
       spreaderConfig: Spreader
       profilerConfig: Profiler
       count: 1
 
   - SMSService:
-      actorInterface: ru.taskurotta.example.worker.profile.SMSService
+      actorInterface: ru.taskurotta.example.worker.sms.SMSService
       runtimeConfig: Runtime
       spreaderConfig: Spreader
       profilerConfig: Profiler
