@@ -35,11 +35,8 @@ When both servers connected to each other, you can find message like this
 
 
 Open console in browser:
-    
-    http://localhost:8081/index.html
-or
 
-    http://localhost:8082/index.html
+[http://localhost:8081/index.html](http://localhost:8081/index.html) or [http://localhost:8082/index.html](http://localhost:8082/index.html)
 
 You can use ANY node console later. In general, consoles provide the same information.
 Note: console is not implemented yet. It is support all features only in configuration with mongodb and oracle
@@ -64,7 +61,7 @@ NotificationDeciderImlTest class contains example of decider initialisation and 
     mvn install
     java -cp target/process-1.0-SNAPSHOT.jar ru.taskurotta.example.starter.NotificationModule http://localhost:8081 91
 
-Check console http://localhost:8081/index.html . Select "Queues" menu item. There should be 91 tasks in
+Check console [http://localhost:8081/index.html](http://localhost:8081/index.html) . Select "Queues" menu item. There should be 91 tasks in
 ru.taskurotta.example.decider.NotificationDecider#1.0 queue.
 
 ### Run decider
@@ -82,7 +79,7 @@ Our decider going to register on taskurotta to port 8081 just check src/main/res
                 readTimeout: 0
                 connectTimeout: 3000
 
-After decider start. Check console http://localhost:8081/index.html . Select "Queues" menu item. There should be 91 tasks in ru.taskurotta.example.worker.profile.UserProfileService#1.0 queue.
+After decider start. Check console [http://localhost:8081/index.html](http://localhost:8081/index.html) . Select "Queues" menu item. There should be 91 tasks in ru.taskurotta.example.worker.profile.UserProfileService#1.0 queue.
 ### Run actors
 
     java -Xmx256m -jar target/process-1.0-SNAPSHOT.jar -f src/main/resources/config-actors.yml
@@ -99,6 +96,6 @@ Our actors going to ask taskurotta to port 8082 just check src/main/resources/co
             connectTimeout: 3000
 
 Now you see how our small cluster works. Test starter creates processes on localhost:8081 and decider started with registration on port 8081.
-But our actors executes processes getting them from localhost:8082. If you open web console on http://localhost:8081 or on http://localhost:8082, you will see that all queues have zero tasks because all already executed after actors run.
+But our actors executes processes getting them from localhost:8082. If you open web console on [http://localhost:8081/index.html](http://localhost:8081/index.html) or on [http://localhost:8082/index.html](http://localhost:8082/index.html), you will see that all queues have zero tasks because all already executed after actors run.
 Try to change configuration and you will see that two taskurotta servers can be used vice versa.
 
