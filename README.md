@@ -98,6 +98,6 @@ Our actors going to ask taskurotta to port 8082 just check src/main/resources/co
 Now you see how our small cluster works. Test starter creates processes on [http://localhost:8081/index.html](http://localhost:8081/index.html) and **decider** started with registration **on port 8081** too.
 But our **actors** executes processes getting them from [http://localhost:8082/index.html](http://localhost:8082/index.html).
 
-If you open web console on [http://localhost:8081/index.html](http://localhost:8081/index.html) or on [http://localhost:8082/index.html](http://localhost:8082/index.html), you will see that all queues have zero tasks because all already executed after actors run.
+If you open web console on [http://localhost:8081/index.html](http://localhost:8081/index.html) or on [http://localhost:8082/index.html](http://localhost:8082/index.html), you will see that all queues have zero tasks because all tasks have already executed after actors run.
 Try to change configuration and you will see that two taskurotta servers can be used vice versa.
 
