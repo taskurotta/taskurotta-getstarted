@@ -7,9 +7,9 @@
 
 Checkout last tested version
     
-    git checkout 738f5b7eff
+    git checkout 246146d
 
-### Download and install oracle driver
+#### Download and install oracle driver (ONLY needed to run with Oracle)
 
 It is needed for integration tests and will be removed soon.
 
@@ -29,13 +29,18 @@ Please correct port numbers if you will use same physical server.
 
 Run first node:
 
-    java -Xmx256m -DassetsMode=dev -Dts.node.custom.name="node1" -Ddw.http.port=8081 -Ddw.http.adminPort=9081 -Ddw.logging.file.currentLogFilename="assemble/target/server1.log" -jar assemble/target/assemble-0.3.0-SNAPSHOT.jar server assemble/src/main/resources/hz.yml
+    java -Xmx256m -DassetsMode=dev -Dts.node.custom.name="node1" -Ddw.http.port=8081 -Ddw.http.adminPort=9081 -Ddw.logging.file.currentLogFilename="assemble/target/server1.log" -jar assemble/target/assemble-0.3.1.jar server assemble/src/main/resources/hz.yml
     
 Run second node:
 
-    java -Xmx256m -DassetsMode=dev -Dts.node.custom.name="node2" -Ddw.http.port=8082 -Ddw.http.adminPort=9082 -Ddw.logging.file.currentLogFilename="assemble/target/server2.log" -jar assemble/target/assemble-0.3.0-SNAPSHOT.jar server assemble/src/main/resources/hz.yml
+    java -Xmx256m -DassetsMode=dev -Dts.node.custom.name="node2" -Ddw.http.port=8082 -Ddw.http.adminPort=9082 -Ddw.logging.file.currentLogFilename="assemble/target/server2.log" -jar assemble/target/assemble-0.3.1.jar server assemble/src/main/resources/hz.yml
     
-When both servers connected to each other, you can find message like this "Members [2] {" in  log files.
+When both servers connected to each other, you can find message like this
+
+    Members [2] {
+    	Member [192.168.1.2]:7777
+    	Member [192.168.1.2]:7778 this
+    }
 
 
 Open console in browser:
@@ -75,5 +80,17 @@ ru.taskurotta.example.decider.NotificationDecider#1.0 queue.
 
     java -Xmx256m -jar target/process-1.0-SNAPSHOT.jar -f src/main/resources/config.yml
 
+Our actors going to ask taskurotta to port 8082 just check src/main/resources/config.yml
 
+    spreader:
+      - Spreader:
+          class: ru.taskurotta.example.bootstrap.SimpleSpreaderConfig
+          instance:
+            endpoint: "http://localhost:8082"
+            threadPoolSize: 10
+            readTimeout: 0
+            connectTimeout: 3000
+
+Now you see how our small cluster works. Test starter creates processes on localhost:8081 and our actors executes processes getting them from localhost:8082.
+Try to change configuration and you will see that two taskurotta servers can be used vice versa.
 

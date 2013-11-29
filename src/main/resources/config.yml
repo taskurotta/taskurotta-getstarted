@@ -8,7 +8,7 @@ spreader:
   - Spreader:
       class: ru.taskurotta.example.bootstrap.SimpleSpreaderConfig
       instance:
-        endpoint: "http://localhost:8081"
+        endpoint: "http://localhost:8082"
         threadPoolSize: 10
         readTimeout: 0
         connectTimeout: 3000
