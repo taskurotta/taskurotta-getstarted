@@ -82,6 +82,9 @@ Our decider going to register on taskurotta to port 8081 just check src/main/res
                 connectTimeout: 3000
 
 After decider start. Check console [http://localhost:8081/index.html](http://localhost:8081/index.html) . Select "Queues" menu item. There should be 91 tasks in ru.taskurotta.example.worker.profile.UserProfileService#1.0 queue.
+
+![Image](https://raw.github.com/taskurotta/taskurotta-getstarted/master/img/step2.png)
+
 ### Run actors
 
     java -Xmx256m -jar target/process-1.0-SNAPSHOT.jar -f src/main/resources/config-actors.yml
@@ -101,5 +104,8 @@ Now you see how our small cluster works. Test starter creates processes on [http
 But our **actors** executes processes getting them from [http://localhost:8082/index.html](http://localhost:8082/index.html).
 
 If you open web console on [http://localhost:8081/index.html](http://localhost:8081/index.html) or on [http://localhost:8082/index.html](http://localhost:8082/index.html), you will see that all queues have zero tasks because all tasks have already executed after actors run.
+
+![Image](https://raw.github.com/taskurotta/taskurotta-getstarted/master/img/step3.png)
+
 Try to change configuration and you will see that two taskurotta servers can be used vice versa.
 
