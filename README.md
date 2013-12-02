@@ -64,7 +64,7 @@ NotificationDeciderImlTest class contains example of decider initialisation and 
 Check console [http://localhost:8081/index.html](http://localhost:8081/index.html) . Select "Queues" menu item. There should be 91 tasks in
 ru.taskurotta.example.decider.NotificationDecider#1.0 queue.
 
-https://raw.github.com/taskurotta/taskurotta-getstarted/master/img/step1.png
+![Image](https://raw.github.com/taskurotta/taskurotta-getstarted/master/img/step1.png)
 
 ### Run decider
 
