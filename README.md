@@ -87,7 +87,7 @@ After decider start. Check console [http://localhost:8081/index.html](http://loc
 
 ### Run actors
 
-    java -Xmx256m -jar target/process-1.0-SNAPSHOT.jar -f src/main/resources/config-actors.yml
+    java -Xmx256m -jar target/process-1.0-SNAPSHOT.jar -f src/main/resources/config-workers.yml
 
 Our actors going to ask taskurotta to port 8082 just check src/main/resources/config.yml
 
