@@ -9,7 +9,8 @@ run Taskurotta server cluster, start actors and follow up the process workflow w
     cd taskurotta/
 
 Checkout last tested version
-    
+
+    git checkout develop
     git checkout <todo: set real version>
 
 ### Assemble Taskurotta framework
@@ -49,6 +50,7 @@ You can use ANY node console later. In general, consoles provide the same inform
 
     git clone https://github.com/taskurotta/taskurotta-getstarted.git
     cd taskurotta-getstarted/
+    git checkout develop
 
 ### Example process content
 
@@ -67,7 +69,7 @@ client interfaces which are used by the decider to communicate with workers.
 
 To do the actual job actor should obtain task from the server. So lets submit some tasks for a decider to start the example process.
 
-    java -cp target/process-1.0-SNAPSHOT.jar ru.taskurotta.example.starter.NotificationModule http://localhost:8081 91
+    java -cp target/getstarted-process-1.0-SNAPSHOT.jar ru.taskurotta.example.starter.NotificationModule http://localhost:8081 91
 
 Check the console [http://localhost:8081/index.html](http://localhost:8081/index.html) . Select "Queues" menu item. There should be 91 tasks in the
 ru.taskurotta.example.decider.NotificationDecider#1.0 queue. They are the process starters tasks for deciders.
