@@ -11,7 +11,7 @@ run Taskurotta server cluster, start actors and follow up the process workflow w
 Checkout last tested version
 
     git checkout develop
-    git checkout <todo: set real version>
+    git checkout 5918c8db1a
 
 ### Assemble Taskurotta framework
 
