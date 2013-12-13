@@ -10,7 +10,6 @@ run Taskurotta server cluster, start actors and follow up the process workflow w
 
 Checkout last tested version
 
-    git checkout develop
     git checkout 5918c8db1a
 
 ### Assemble Taskurotta framework
@@ -50,7 +49,7 @@ You can use ANY node console later. In general, consoles provide the same inform
 
     git clone https://github.com/taskurotta/taskurotta-getstarted.git
     cd taskurotta-getstarted/
-    git checkout develop
+    git checkout 9d3b39b317
 
 ### Example process content
 
