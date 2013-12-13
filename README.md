@@ -74,7 +74,7 @@ To do the actual job actor should obtain task from the server. So lets submit so
 Check the console [http://localhost:8081/index.html](http://localhost:8081/index.html) . Select "Queues" menu item. There should be 91 tasks in the
 ru.taskurotta.example.decider.NotificationDecider#1.0 queue. They are the process starters tasks for deciders.
 
-![Image](https://raw.github.com/taskurotta/taskurotta-getstarted/develop/img/step1.png)
+![Image](https://raw.github.com/taskurotta/taskurotta-getstarted/develop/img/step1.jpg)
 
 ### Run the decider
 
@@ -96,7 +96,7 @@ The result of example decider execution is a task for the worker that would appe
 Every taskurotta actor is bind to the corresponding server queue and executes tasks from it.
 Check the console [http://localhost:8081/index.html](http://localhost:8081/index.html) . On "Queues" menu item there should be 91 tasks in ru.taskurotta.example.worker.profile.UserProfileService#1.0 queue.
 
-![Image](https://raw.github.com/taskurotta/taskurotta-getstarted/develop/img/step2.png)
+![Image](https://raw.github.com/taskurotta/taskurotta-getstarted/develop/img/step2.jpg)
 
 ### Run the workers
 
@@ -121,7 +121,7 @@ But the **actors** execute processes by getting them from the second node [http:
 If you open the web console on [http://localhost:8081/index.html](http://localhost:8081/index.html) or [http://localhost:8082/index.html](http://localhost:8082/index.html), you will see that all
 queues have now zero tasks because all tasks have already been executed after actors run.
 
-![Image](https://raw.github.com/taskurotta/taskurotta-getstarted/develop/img/step3.png)
+![Image](https://raw.github.com/taskurotta/taskurotta-getstarted/develop/img/step3.jpg)
 
 Try to change the configuration and you will see that two taskurotta servers can be used vice versa.
 
