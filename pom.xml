@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>process</groupId>
-    <artifactId>process</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>ru.taskurotta</groupId>
+    <artifactId>getstarted-process</artifactId>
+    <version>0.1.0</version>
 
     <properties>
         <java.version>1.7</java.version>
@@ -16,17 +16,17 @@
         <dependency>
             <groupId>ru.taskurotta</groupId>
             <artifactId>core</artifactId>
-            <version>0.3.0-SNAPSHOT</version>
+            <version>0.4.0</version>
         </dependency>
         <dependency>
             <groupId>ru.taskurotta</groupId>
             <artifactId>client</artifactId>
-            <version>0.3.0-SNAPSHOT</version>
+            <version>0.4.0</version>
         </dependency>
         <dependency>
             <groupId>ru.taskurotta</groupId>
             <artifactId>dropwizard</artifactId>
-            <version>0.3.0-SNAPSHOT</version>
+            <version>0.4.0</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -36,7 +36,7 @@
         <dependency>
             <groupId>ru.taskurotta</groupId>
             <artifactId>bootstrap</artifactId>
-            <version>0.3.0-SNAPSHOT</version>
+            <version>0.4.0</version>
         </dependency>
     </dependencies>
 
