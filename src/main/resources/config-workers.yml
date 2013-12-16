@@ -49,3 +49,34 @@ actor:
       spreaderConfig: Spreader
       profilerConfig: Profiler
       count: 1
+logback:
+    appender:
+        - STDOUT:
+             key: name
+             \@class: ch.qos.logback.core.ConsoleAppender
+             encoder:
+                 pattern: \%c - \%m\%n
+        - FILE:
+             key: name
+             \@class: ch.qos.logback.core.FileAppender
+             file: ./target/logs/actors.log
+             append: false
+             encoder:
+                 pattern: \%-4r [\%t] \%-5p \%c - \%m\%n
+    logger:
+        - ru.taskurotta:
+             key: name
+             \@level: INFO
+        - org:
+             key: name
+             \@level: ERROR
+        - httpclient:
+             key: name
+             \@level: ERROR
+    root:
+        appender-ref:
+            - STDOUT:
+                key: ref
+            - FILE:
+                key: ref
+
