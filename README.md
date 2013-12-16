@@ -49,7 +49,7 @@ You can use ANY node console later. In general, consoles provide the same inform
 
     git clone https://github.com/taskurotta/taskurotta-getstarted.git
     cd taskurotta-getstarted/
-    git checkout 9d3b39b317
+    git checkout f676435cf2
 
 ### Example process content
 
